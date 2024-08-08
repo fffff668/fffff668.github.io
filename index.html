@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./alipay.js"></script>
+
+<!--<button id="J_btn" class="btn btn-default">支付</button>-->
+<!--<script>-->
+<!--  var btn = document.querySelector('#J_btn');-->
+<!--  btn.addEventListener('click', function(){-->
+<!--    ap.tradePay({-->
+<!--      orderStr: 'alipay_sdk=alipay-sdk-java-dynamicVersionNo\u0026app_id=2021003194661138\u0026biz_content=%7B%22body%22%3A%22%E9%B2%9C%E6%8C%91%E9%B2%9C%E9%80%89%E5%B9%BF%E8%A5%BF%E9%9D%92%E7%9A%AE%E9%87%91%E7%85%8C%E8%8A%924.5%E6%96%A4%E5%A4%9A%E8%A7%84%E6%A0%BC%E6%96%B0%E9%B2%9C%E6%B0%B4%E6%9E%9C%E8%8A%92%E6%9E%9C%E6%95%B4%E7%AE%B1---1%E6%96%A4%22%2C%22business_params%22%3A%22%7B%5C%22outTradeRiskInfo%5C%22%3A%5C%22%7B%7D%5C%22%7D%22%2C%22extend_params%22%3A%7B%7D%2C%22out_trade_no%22%3A%22DPM24072918495619040016122881183%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22promo_params%22%3A%22%7B%7D%22%2C%22seller_id%22%3A%222088641207265577%22%2C%22subject%22%3A%22%E6%8A%96%E9%9F%B3%E7%94%B5%E5%95%86-%E8%AE%A2%E5%8D%95%E7%BC%96%E5%8F%B76932679609450043000%22%2C%22time_expire%22%3A%222024-07-29+18%3A59%3A43%22%2C%22total_amount%22%3A%222.90%22%7D\u0026charset=utf-8\u0026format=json\u0026method=alipay.trade.app.pay\u0026notify_url=https%3A%2F%2Fapi-cpc.doupay.com%2Fgateway%2Fpayment%2Fcallback%2Falipay%2Fnotify%2Fpay\u0026sign=bWnFrfArBNigMJPbvVfohXebcETKAhCGNpXCGFVT7joe3tCV%2BzzBegq9Ig0nVsxoJaIPMcEQ35koC6Nv8cbgjDK2pmFO%2Bvgh48Rvnk3e8ZcvXPcmCgy4zM3z4c3Pxcnhw1hAuQIMywLSS36pfO8ln%2FEf5Hfv%2BsAcRaqH59qQ1gz%2F6vDoqlQJlYvnHq3KTGITsapgASiQlKwu2EteLaA%2FtPxDLaog2XT%2F8tN%2Fo0B%2FFyj0PWA6uk3xLzy0Rc7EyhuRH%2BlQe3z208OA%2BYNFtVHvVHZKasEyr1q%2BAuuJqu2hONLu63UVo0L6NxJVM0E3%2FSsarKrDwkA%2FO0B8tRQuK6jvOQ%3D%3D\u0026sign_type=RSA2\u0026timestamp=2024-07-29+18%3A50%3A00\u0026version=1.0'-->
+<!--    }, function(res){-->
+<!--      ap.alert(res.resultCode);-->
+<!--    });-->
+<!--  });-->
+<!--</script>-->
+
+
+
+
+
+
+
+    
+    
+<!--<h1>点击以下按钮唤起收银台支付</h1>-->
+<!--<a href="javascript:void(0)" class="btn orderstr">订单串唤起支付</a>-->
+<script>
+// function ready(callback) {
+//   // 如果jsbridge已经注入则直接调用
+//   if (window.AlipayJSBridge) {
+//     callback && callback();
+//   } else {
+//     // 如果没有注入则监听注入的事件
+//     document.addEventListener('AlipayJSBridgeReady', callback, false);
+//   }
+// }
+// ready(function(){
+//   document.querySelector('.orderstr').addEventListener('click', function() {
+//     AlipayJSBridge.call("tradePay", {
+//       orderStr: "alipay_sdk=alipay-sdk-java-dynamicVersionNo\u0026app_id=2021003194661138\u0026biz_content=%7B%22body%22%3A%22%E9%B2%9C%E6%8C%91%E9%B2%9C%E9%80%89%E5%B9%BF%E8%A5%BF%E9%9D%92%E7%9A%AE%E9%87%91%E7%85%8C%E8%8A%924.5%E6%96%A4%E5%A4%9A%E8%A7%84%E6%A0%BC%E6%96%B0%E9%B2%9C%E6%B0%B4%E6%9E%9C%E8%8A%92%E6%9E%9C%E6%95%B4%E7%AE%B1---1%E6%96%A4%22%2C%22business_params%22%3A%22%7B%5C%22outTradeRiskInfo%5C%22%3A%5C%22%7B%7D%5C%22%7D%22%2C%22extend_params%22%3A%7B%7D%2C%22out_trade_no%22%3A%22DPM24072918495619040016122881183%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22promo_params%22%3A%22%7B%7D%22%2C%22seller_id%22%3A%222088641207265577%22%2C%22subject%22%3A%22%E6%8A%96%E9%9F%B3%E7%94%B5%E5%95%86-%E8%AE%A2%E5%8D%95%E7%BC%96%E5%8F%B76932679609450043000%22%2C%22time_expire%22%3A%222024-07-29+18%3A59%3A43%22%2C%22total_amount%22%3A%222.90%22%7D\u0026charset=utf-8\u0026format=json\u0026method=alipay.trade.app.pay\u0026notify_url=https%3A%2F%2Fapi-cpc.doupay.com%2Fgateway%2Fpayment%2Fcallback%2Falipay%2Fnotify%2Fpay\u0026sign=bWnFrfArBNigMJPbvVfohXebcETKAhCGNpXCGFVT7joe3tCV%2BzzBegq9Ig0nVsxoJaIPMcEQ35koC6Nv8cbgjDK2pmFO%2Bvgh48Rvnk3e8ZcvXPcmCgy4zM3z4c3Pxcnhw1hAuQIMywLSS36pfO8ln%2FEf5Hfv%2BsAcRaqH59qQ1gz%2F6vDoqlQJlYvnHq3KTGITsapgASiQlKwu2EteLaA%2FtPxDLaog2XT%2F8tN%2Fo0B%2FFyj0PWA6uk3xLzy0Rc7EyhuRH%2BlQe3z208OA%2BYNFtVHvVHZKasEyr1q%2BAuuJqu2hONLu63UVo0L6NxJVM0E3%2FSsarKrDwkA%2FO0B8tRQuK6jvOQ%3D%3D\u0026sign_type=RSA2\u0026timestamp=2024-07-29+18%3A50%3A00\u0026version=1.0"
+//     }, function(result) {
+//       alert(JSON.stringify(result));
+//     });
+//   });
+// });
+
+
+
+ AlipayJSBridge.call("tradePay", {
+      orderStr: "alipay_sdk=alipay-sdk-java-dynamicVersionNo\u0026app_id=2021003194661138\u0026biz_content=%7B%22body%22%3A%22%E9%B2%9C%E6%8C%91%E9%B2%9C%E9%80%89%E5%B9%BF%E8%A5%BF%E9%9D%92%E7%9A%AE%E9%87%91%E7%85%8C%E8%8A%924.5%E6%96%A4%E5%A4%9A%E8%A7%84%E6%A0%BC%E6%96%B0%E9%B2%9C%E6%B0%B4%E6%9E%9C%E8%8A%92%E6%9E%9C%E6%95%B4%E7%AE%B1---1%E6%96%A4%22%2C%22business_params%22%3A%22%7B%5C%22outTradeRiskInfo%5C%22%3A%5C%22%7B%7D%5C%22%7D%22%2C%22extend_params%22%3A%7B%7D%2C%22out_trade_no%22%3A%22DPM24072918495619040016122881183%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22promo_params%22%3A%22%7B%7D%22%2C%22seller_id%22%3A%222088641207265577%22%2C%22subject%22%3A%22%E6%8A%96%E9%9F%B3%E7%94%B5%E5%95%86-%E8%AE%A2%E5%8D%95%E7%BC%96%E5%8F%B76932679609450043000%22%2C%22time_expire%22%3A%222024-07-29+18%3A59%3A43%22%2C%22total_amount%22%3A%222.90%22%7D\u0026charset=utf-8\u0026format=json\u0026method=alipay.trade.app.pay\u0026notify_url=https%3A%2F%2Fapi-cpc.doupay.com%2Fgateway%2Fpayment%2Fcallback%2Falipay%2Fnotify%2Fpay\u0026sign=bWnFrfArBNigMJPbvVfohXebcETKAhCGNpXCGFVT7joe3tCV%2BzzBegq9Ig0nVsxoJaIPMcEQ35koC6Nv8cbgjDK2pmFO%2Bvgh48Rvnk3e8ZcvXPcmCgy4zM3z4c3Pxcnhw1hAuQIMywLSS36pfO8ln%2FEf5Hfv%2BsAcRaqH59qQ1gz%2F6vDoqlQJlYvnHq3KTGITsapgASiQlKwu2EteLaA%2FtPxDLaog2XT%2F8tN%2Fo0B%2FFyj0PWA6uk3xLzy0Rc7EyhuRH%2BlQe3z208OA%2BYNFtVHvVHZKasEyr1q%2BAuuJqu2hONLu63UVo0L6NxJVM0E3%2FSsarKrDwkA%2FO0B8tRQuK6jvOQ%3D%3D\u0026sign_type=RSA2\u0026timestamp=2024-07-29+18%3A50%3A00\u0026version=1.0"
+    }, function(result) {
+      alert(JSON.stringify(result));
+    });
+
+
+</script>
+
+    
+    
+
+
+
+
+
+
+
+
+
+<!--<script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.inc.min.js"></script>-->
+
+<!--<button id="J_btn" class="btn btn-default">支付</button>-->
+<!--<script>-->
+<!--  var btn = document.querySelector('#J_btn');-->
+<!--  btn.addEventListener('click', function(){-->
+<!--    ap.tradePay({-->
+<!--      tradeNO: '6932682077903656568'-->
+<!--    }, function(res){-->
+<!--      ap.alert(res.resultCode);-->
+<!--    });-->
+<!--  });-->
+<!--</script>-->
+
+
+
+
+<script>
+    
+//   function onBridgeReady() {
+//     WeixinJSBridge.invoke('getBrandWCPayRequest', {
+//         "appId": "wx76fdd06dde311af3",     //公众号ID，由商户传入     
+//         "timeStamp": "1722262834",     //时间戳，自1970年以来的秒数     
+//         "nonceStr": "dO2ZwGs2FKuwCi8egaUTiZMK6dIA8EJD",      //随机串     
+//         "package": "prepay_id=wx29222034863431f552b10cb20f5b960000",
+//         "signType": "RSA",     //微信签名方式：     
+//         "paySign": "JQ6jseWV0VekPtA1MRvX9GMpzE6MCeW2DT9G3vs1UTWxH9Uuxm6Pb9qGfubl+isKxvT971tAf5dK0L5F0mXhn3+3vuzCEou1VkT9H8N0KgYzxIUUSblq4V7SiYEtlCtc7ZV1QXrRLhrBXUs+C3lmSvBfDViechl6YAM9QkMvabw70+8\/TwfE5otzcgXsQdbnFd3ux37mDkfsDy9kKAKpq\/8hkjm+3cH+Qx4KHvqsuMrjxfaQGT08MmA6uXO0oup\/Nk5tT8wLM2+D18bqwH0I3+RLIork3BykP6ST3qJ5WWIwgZMiyAoxsSge3TnFTaOs5+NedlRWRokPXN2HSa1CSw==" //微信签名 
+//     },
+//     function(res) {
+//         if (res.err_msg == "get_brand_wcpay_request:ok") {
+//             // 使用以上方式判断前端返回,微信团队郑重提示：
+//             //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+//         }
+//     });
+// }
+// if (typeof WeixinJSBridge == "undefined") {
+//     if (document.addEventListener) {
+//         document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+//     } else if (document.attachEvent) {
+//         document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+//         document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+//     }
+// } else {
+//     onBridgeReady();
+// }
+ 
+
+
+//  function onBridgeReady() {
+//     WeixinJSBridge.invoke('getBrandWCPayRequest', {
+//     "appId": "wx839691cce7c102bb",
+//     "timeStamp": 1722316475,
+//     "nonceStr": "GzDqiYUrOAsLjeBfHRSFZWIhnoJXTcKE",
+//     "package": "prepay_id=wx3013143539880381326be89bc2b5e80001",
+//     "signType": "MD5",
+//     "paySign": "AF2B9C23A309E3ED7967783286D4F2B7"
+// },
+//     function(res) {
+//         if (res.err_msg == "get_brand_wcpay_request:ok") {
+//             // 使用以上方式判断前端返回,微信团队郑重提示：
+//             //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+//         }
+//     });
+// }
+// if (typeof WeixinJSBridge == "undefined") {
+//     if (document.addEventListener) {
+//         document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+//     } else if (document.attachEvent) {
+//         document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+//         document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+//     }
+// } else {
+//     onBridgeReady();
+// }
+ 
+
+
+    
+    
+</script>
+
+
+
+</body>
+</html>
+
