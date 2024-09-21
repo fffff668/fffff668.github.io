@@ -10,8 +10,8 @@
 <script>
         
  let orderStr = "";
-ap.call("tradePay", {
-  tradeNO: "2024092122001462661446597549",
+AlipayJSBridge.call("tradePay", {
+  tradeNO: "2024092122001462661446597549", // 必传，此使用方式下该字段必传202409160144976521
  
 }, function(result) {
     alert(result)
