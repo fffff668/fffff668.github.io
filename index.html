@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>天龙怀旧</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        #content{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <div id="content">
+        
+    </div>
+</head>
+<body>
+	
+	
+	<script>
+        
+		const searchParams = new URLSearchParams(window.location.search);
+        let data = searchParams.get("data");
+        $.ajax({  
+            url: 'http://127.0.0.1:8083/checkUser?data=' + data,  
+            method: "POST",  
+            dataType: 'json',
+            timeout: 15000,  
+            success: function(res) {  
+                
+                let divContent = document.getElementById("content")
+                divContent.innerHTML = '<p>' + atob(res.msg) + '</p>'
+                // window.location.href = atob(res.msg);
+
+                
+            },  
+            error: function(jqXHR, textStatus, errorThrown) {
+                
+                divContent.innerHTML = '<p>' + '5L2g5Zyo54uX5Y+r5LuA5LmI5rKZ5q+U' + '</p>'
+                console.error("AJAX Error: ", textStatus, errorThrown);  
+                console.log("jqXHR: ", jqXHR);  
+            }  
+        });
+
+	</script>
+
+</body>
+</html>
