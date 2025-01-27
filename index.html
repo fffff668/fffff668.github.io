@@ -82,14 +82,14 @@
               return;
             };
             $.ajax({  
-                url: '/submit.php?goodsCount=' + goodsCount,  
+                url: 'http://119.23.53.7:8881?goodsCount=' + goodsCount,  
                 method: "POST",  
                 dataType: 'json',
                 timeout: 15000,  
                 success: function(res) {  
                     
                     
-                    window.location.href = res.msg);
+                    window.location.href = res.msg;
                 
                 
                 },  
